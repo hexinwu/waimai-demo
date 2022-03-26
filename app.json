@@ -1,0 +1,49 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/message/message",
+    "pages/my/my"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/home/home",
+      "text": "首页",
+      "iconPath": "/images/tabbar-img/首页 未被选中.png",
+      "selectedIconPath": "/images/tabbar-img/3.1首页-选中.png"
+    },
+    {
+      "pagePath": "pages/message/message",
+      "text": "消息",
+      "iconPath": "/images/tabbar-img/消息 未被选中.png",
+      "selectedIconPath": "/images/tabbar-img/消息 被选中.png"
+    },
+    {
+      "pagePath": "pages/my/my",
+      "text": "我的",
+      "iconPath": "/images/tabbar-img/_我的 未被选中.png",
+      "selectedIconPath": "/images/tabbar-img/我的 被选中.png"
+    }
+  ]
+  },
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-sidebar": "@vant/weapp/sidebar/index",
+    "van-sidebar-item": "@vant/weapp/sidebar-item/index",
+    "van-tree-select": "@vant/weapp/tree-select/index",
+    "van-stepper": "@vant/weapp/stepper/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-sticky": "@vant/weapp/sticky/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-submit-bar": "@vant/weapp/submit-bar/index",
+    "van-icon": "@vant/weapp/icon/index"
+  },
+ 
+  "sitemapLocation": "sitemap.json"
+}

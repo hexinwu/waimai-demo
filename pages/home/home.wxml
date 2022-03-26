@@ -1,0 +1,84 @@
+<!-- 滚动条和搜索框开始 -->
+<van-sticky>
+  <van-notice-bar left-icon="volume-o" scrollable text="吉安炒米粉，口味一绝，欢迎大家前来下单，营业到晚上十点。" />
+  <van-search value="{{ value }}" shape="round" background="#C00000" placeholder="请输入搜索关键词" />
+</van-sticky>
+<!-- 滚动条和搜索框结束 -->
+
+<!-- 轮播图开始 -->
+<view class="swiper">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{background}}" wx:key="*this">
+      <swiper-item>
+        <image src="{{item}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<!-- 轮播图结束 -->
+
+<!-- 点单区域开始 -->
+<view class="scroll-view-container">
+ <!-- 点单左侧区域开始 -->
+  <view class="order">
+    <van-sidebar active-key="{{ activeKey }}">
+      <van-sidebar-item title="招牌必点" />
+      <van-sidebar-item title="折扣商品" />
+      <van-sidebar-item title="满减搭配" />
+      <van-sidebar-item title="特色炒饭" />
+      <van-sidebar-item title="特色炒粉" />
+      <van-sidebar-item title="特色炒面" />
+      <van-sidebar-item title="加蛋加饭" />
+      <van-sidebar-item title="辣椒秘酱" />
+      <van-sidebar-item title="饮料专区" />
+      <van-sidebar-item title="骑手招募" />
+    </van-sidebar>
+  </view>
+  <!-- 点单左侧区域结束 -->
+
+
+  <!-- 点单右侧区域开始 -->
+
+  <view class="goods-list" style="padding-bottom: 50px;">
+
+    <view class="item" wx:for="{{goodsData}}" data-goodsid="{{item.GoodsNo}}" >
+      <!--  食物图片开始 -->
+      <view class="pic">
+        <image src="{{item.GoodsImage}}" style="width: 100px; height: 100px; border-radius: 30px; margin-right: 5px;"></image>
+      </view>
+      <!-- 食物图片结束 -->
+
+      <!-- 食物描述开始 -->
+      <view class="content">
+        <view class="title">{{item.Title}}</view>
+        <van-tag type="primary">{{item.Brand}}</van-tag>
+        <!-- 食物描述结束 -->
+
+
+        <!-- 圆角加一按钮开始 -->
+  
+        <van-stepper value="{{ 0 }}" min="0" theme="round" button-size="15px" bind:change="onChange" />
+      
+        <!-- 圆角加一按钮结束 -->
+
+
+        <!-- 价格区域开始 -->
+        <view class="price" style="font-size: 16px; color: red;">￥{{item.SaleAmount}}</view>
+        <van-tag round type="success">{{item.SaleMount}}</van-tag>
+        <!--  价格区域结束 -->
+      </view>
+    </view>
+  </view>
+  <!-- 点单右侧区域结束 -->
+</view>
+<!-- 点单区域结束 -->
+
+<!-- 底部结算区域开始 -->
+<view style="position: fixed; bottom: 0; width: 320px; z-index: 999;">
+ <van-submit-bar
+  price="{{ 0 }}"
+  button-text="提交订单"
+  bind:submit="onSubmit"
+/>
+</view>
+<!-- 底部结算区域结束 -->

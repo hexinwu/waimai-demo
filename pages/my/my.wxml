@@ -1,0 +1,45 @@
+<!--pages/my/my.wxml-->
+<!-- 获取头像昵称登录界面开始 -->
+<view class="container" style="border-bottom:1px solid #c00000;">
+  <view class="userinfo" style="position: absolute; top: 50px; right: 40px;">
+    <block wx:if="{{!hasUserInfo}}">
+      <image src="/images/tabbar-img/未登录.png" style="width: 80px; height: 80px; position: absolute; right: 175px; top: -15px; border-radius: 50%;"></image>
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile" style="border-radius: 20px; background-color:#07c160;"> 获取头像昵称 </button>
+      <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" style="width: 80px; height: 80px; border-radius: 50%; position: absolute; left: -175px; top: -12px;"></image>
+      <text class="userinfo-nickname" style="font-size: 20px;">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+</view>
+<!-- 获取头像昵称登录界面结束 -->
+
+<!-- 底部详情开始 -->
+<view class="bottom-details">
+<view class="my-item" bindtap="jumpOrder">
+  <van-icon name="cart-o" size="30px" color="skyblue" style="margin-top: 5px;"/>
+  <text class="detail">订单详情</text>
+  <van-icon name="arrow" style="padding-left: 200px;" />
+</view>
+
+<view class="my-item">
+  <van-icon name="point-gift-o" size="30px" color="skyblue" style="margin-top: 5px;"/>
+  <text class="detail">优惠券</text>
+  <van-icon name="arrow" style="padding-left: 216px;" />
+</view>
+
+<view class="my-item">
+  <van-icon name="service-o" size="30px" color="skyblue" style="margin-top: 5px;"/>
+  <text class="detail">联系客服</text>
+  <van-icon name="arrow" style="padding-left: 200px;" />
+</view>
+
+<view class="my-item">
+  <van-icon name="phone-o" size="30px" color="skyblue" style="margin-top: 5px;"/>
+  <text class="detail">致电商家</text>
+  <van-icon name="arrow" style="padding-left: 200px;" />
+</view>
+</view>
+<!--  底部详情结束 -->
+
